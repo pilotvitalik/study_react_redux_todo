@@ -7,6 +7,8 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import Header from './Components/Header/Header';
+
 import style from './app.module.css';
 
 function App() {
@@ -19,11 +21,7 @@ function App() {
   return (
     <div className={style.App}>
       <Grid container>
-        <Grid 
-          item
-          xs={12}>
-          Header
-        </Grid>
+        <Header/>
         <Grid
           item
           xs={12}>
