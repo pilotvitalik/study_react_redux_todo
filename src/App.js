@@ -6,13 +6,22 @@ import Radio from '@material-ui/core/Radio';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Header from './Components/Header/Header';
 import Title from './Components/Title/Title';
 
 import style from './app.module.css';
 
+const useStyles = makeStyles((theme) => ({
+  sidebar:{
+    background: '#f5f5f5'
+  },
+}));
+
 function App() {
+  const classes = useStyles();
+
   let selectedValue = '';
 
   const handleChange = (e) => {
@@ -24,7 +33,7 @@ function App() {
       <Grid container>
         <Header/>
         <Title/>
-        <Grid container item xs={12} direction={'row'} wrap={'nowrap'}>
+        <Grid container item xs={12} direction={'row'} wrap={'nowrap'} className={classes.sidebar}>
           <Grid item xs={false} md={2}>
           </Grid>
           <Grid item xs={12} sm={12} md={8}>
