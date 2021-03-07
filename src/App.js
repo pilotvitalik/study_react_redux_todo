@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import Header from './Components/Header/Header';
+import Title from './Components/Title/Title';
 
 import style from './app.module.css';
 
@@ -22,11 +23,7 @@ function App() {
     <div className={style.App}>
       <Grid container>
         <Header/>
-        <Grid
-          item
-          xs={12}>
-          Todos
-        </Grid>
+        <Title/>
         <Grid container item xs={12} direction={'row'} wrap={'nowrap'}>
           <Grid item xs={false} md={2}>
           </Grid>
