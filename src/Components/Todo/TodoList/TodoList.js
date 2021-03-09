@@ -5,6 +5,7 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Clear from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
 	root:{
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
 	btn:{
 		minWidth: '25px',
 		width: '25px',
+	},
+	closeBtn:{
+		color: '#cc9a9a',
 	}
 }));
 
@@ -51,7 +55,7 @@ function TodoList(){
 		  	  <option value={20}>Twenty</option>
 		  	  <option value={30}>Thirty</option>
 		  	</Select>
-		  	<Button variant='text' className={classes.btn}>х</Button>
+		  	<Button variant='text' className={classes.btn}><Clear/></Button>
 		  </ListItem>
 		</List>
 	);
