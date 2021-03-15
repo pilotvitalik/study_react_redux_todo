@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Clear from '@material-ui/icons/Clear';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
 	root:{
@@ -55,7 +56,9 @@ function TodoList(){
 		  	  <option value={20}>Twenty</option>
 		  	  <option value={30}>Thirty</option>
 		  	</Select>
-		  	<Button variant='text' className={classes.btn}><Clear/></Button>
+		  	<Box ml={1}>
+		  		<Button variant='text' className={classes.btn}><Clear/></Button>
+		  	</Box>
 		  </ListItem>
 		</List>
 	);

@@ -13,10 +13,10 @@ function App() {
         <Header/>
         <Title/>
         <Grid container item xs={12} direction={'row'} wrap={'nowrap'}>
-          <Grid item xs={false} md={2}>
+          <Grid item xs={false} md={1}>
           </Grid>
           <Common/>
-          <Grid item xs={false} md={2}>
+          <Grid item xs={false} md={1}>
           </Grid>
         </Grid>
       </Grid>

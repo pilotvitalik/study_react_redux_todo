@@ -1,4 +1,5 @@
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 
 import EnterTask from './EnterTask/EnterTask';
@@ -18,15 +19,17 @@ function Common(){
   const classes = useStyles();
 
   return(
-    <Grid item xs={12} sm={12} md={8} className={classes.root}>
-      <Grid container item xs={12} justify={'center'}>
-        <EnterTask/>
+      <Grid item xs={12} sm={12} md={10} className={classes.root}>
+        <Box pb={2}>
+          <Grid container item xs={12} justify={'center'}>
+            <EnterTask/>
+          </Grid>
+          <Grid container item xs={12} justify={'center'}>
+            <TodoList/>
+          </Grid>
+          <AdditionalParams/>
+        </Box>
       </Grid>
-      <Grid container item xs={12} justify={'center'}>
-        <TodoList/>
-      </Grid>
-      <AdditionalParams/>
-    </Grid>
   );
 }
 
