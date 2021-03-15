@@ -6,8 +6,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 	root:{
+		marginBottom: '8px',
 		[theme.breakpoints.up('md')]:{
-			order: 1
+			order: 1,
+			marginBottom: 0,
+		}
+	},
+	firstBtn:{
+		marginTop: '8px',
+		[theme.breakpoints.up('md')]:{
+			marginTop: '16px',
 		}
 	},
 	btns:{
@@ -23,7 +31,7 @@ function ActionsTasks(){
 	return(
 		<Grid container item xs={12} md={3} direction={'column'} justify={'center'} align={'center'} className={classes.root}>
 		  <Typography variant={'subtitle1'} align={'center'}><b>Действия</b></Typography>
-		  <Box mb={1} mt={2}>
+		  <Box mb={1} className={classes.firstBtn}>
 		  	<Button variant="contained" className={classes.btns}>
 		  	  Отметить все
 		  	</Button>
