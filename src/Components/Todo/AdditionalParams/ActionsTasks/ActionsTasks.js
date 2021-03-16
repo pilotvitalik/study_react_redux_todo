@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	firstBtn:{
 		marginTop: '8px',
-		[theme.breakpoints.up('md')]:{
-			marginTop: '16px',
-		}
 	},
 	btns:{
 		color: '#fff',

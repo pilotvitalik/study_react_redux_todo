@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	countTasks:{
 		[theme.breakpoints.up('md')]: {
-		  marginTop: '20px',
+		  marginTop: '12px',
 		}
 	}
 }));
