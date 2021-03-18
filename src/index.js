@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.module.css';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
+import { fetchTodos } from './store/reducers/todoSlice';
+
+store.dispatch(fetchTodos)
+
+console.log(store.getState());
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+  	<Provider store={store}>
+    	<App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
