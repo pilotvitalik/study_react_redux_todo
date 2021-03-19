@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const initialState = {
-	listTasks:'',
+	listTasks:[],
 };
 
 export default function todoReducer(state = initialState, action){
@@ -27,7 +27,7 @@ export async function fetchTodos(dispatch, getState){
 	axios.post('http://127.0.0.1:3030/')
 		.then(res => {
 			const data = res.data;
-			console.log(data);
+			dispatch({type: 'todo/initListTasks', payload: data});
 		})
 		.catch(err => console.log(err))
 }

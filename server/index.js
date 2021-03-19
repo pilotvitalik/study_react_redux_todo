@@ -20,14 +20,14 @@ const server = http.createServer((req, res) => {
     res.end(fileDB);
     //res.end('Hello world, type GET');
   } else {
-    let body = '';
-    // req.on('data', chunk => {
-    //   body += chunk.toString();
-    // });
+    //let body = '';
+    //req.on('data', chunk => {
+      //body += chunk.toString();
+    //});
     // req.on('end', () => {
     //   let params = parse(body);
     //   res.end(body);
-    console.log(fileDB)
+    //console.log(fileDB)
     res.end(fileDB);
   }
 });
