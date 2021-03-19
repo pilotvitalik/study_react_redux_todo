@@ -1,7 +1,9 @@
+import { combineReducers } from 'redux';
+
 import todoReducer from './todoSlice';
 
-export default function rootReducer(state = {}, action){
-	return{
-		todo: todoReducer(state, action),
-	}
-}
+const rootReducer = combineReducers({
+	todo: todoReducer,
+})
+
+export default rootReducer;

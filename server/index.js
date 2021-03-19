@@ -18,15 +18,17 @@ const server = http.createServer((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   if (req.method == 'GET') {
     res.end(fileDB);
+    //res.end('Hello world, type GET');
   } else {
     let body = '';
-    req.on('data', chunk => {
-      body += chunk.toString();
-    });
-    req.on('end', () => {
-      let params = parse(body);
-      res.end(body);
-    });
+    // req.on('data', chunk => {
+    //   body += chunk.toString();
+    // });
+    // req.on('end', () => {
+    //   let params = parse(body);
+    //   res.end(body);
+    console.log(fileDB)
+    res.end(fileDB);
   }
 });
 
