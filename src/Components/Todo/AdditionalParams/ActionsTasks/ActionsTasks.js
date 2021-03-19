@@ -26,7 +26,7 @@ function ActionsTasks(){
 	const classes = useStyles();
 
 	return(
-		<Grid container item xs={12} md={3} direction={'column'} justify={'center'} align={'center'} className={classes.root}>
+		<Grid container item xs={12} md={3} direction={'column'} justify={'start'} align={'center'} className={classes.root}>
 		  <Typography variant={'subtitle1'} align={'center'}><b>Действия</b></Typography>
 		  <Box mb={1} className={classes.firstBtn}>
 		  	<Button variant="contained" className={classes.btns}>
