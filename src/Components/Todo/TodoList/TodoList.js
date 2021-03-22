@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Radio from '@material-ui/core/Radio';
@@ -7,8 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Clear from '@material-ui/icons/Clear';
 import Box from '@material-ui/core/Box';
 import NativeSelect from '@material-ui/core/NativeSelect';
-
-import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
 	root:{
@@ -24,12 +25,19 @@ const useStyles = makeStyles((theme) => ({
 	},
 	closeBtn:{
 		color: '#cc9a9a',
+	},
+	red:{
+		color: 'red'
+	},
+	orange:{
+		color: 'orange'
 	}
 }));
 
 function TodoList(){
 	const classes = useStyles();
 	const list = useSelector(state => state.todo.listTasks);
+	const [activeTask, setActiveTask] = useState(false);
 	
 	let selectedValue = '';
 
@@ -37,22 +45,26 @@ function TodoList(){
 	  selectedValue = 'a';
 	}
 
+	const changeSelectedTask = (e) => {
+		console.log(e.currentTarget);
+		setActiveTask(e.currentTarget.name);
+	}
+
 	const listTodo = list.map((item) => 
 		<ListItem button={false} key={item.id}>
 			<Radio
-			  checked={selectedValue === 'a'}
-			  onChange={handleChange}
-			  value="a"
-			  name="radio-button-demo"
-			  inputProps={{ 'aria-label': 'A' }}
+			  checked={activeTask === item.name}
+			  onChange={changeSelectedTask}
+			  name={item.name}
 			/>
 			<Typography paragraph={true} className={classes.text}>
 				{item.title}
 			</Typography>
 			<NativeSelect
-			  value={item.color}
+			  value={item.color_item}
 			  onChange={handleChange}
 			  name="color"
+			  className={classes[item.color]}
 			>
 			  <option value={'Green'}>Green</option>
 			  <option value={'Blue'}>Blue</option>

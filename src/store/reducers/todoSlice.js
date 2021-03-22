@@ -8,11 +8,7 @@ export default function todoReducer(state = initialState, action){
 	switch(action.type){
 		case 'todo/initListTasks':
 			return {
-				...state,
-				listTasks: [
-					...state.listTasks,
-					action.payload
-				]
+				listTasks: action.payload
 			}
 		default:
 			return state;
@@ -27,7 +23,7 @@ export async function fetchTodos(dispatch, getState){
 	axios.post('http://127.0.0.1:3030/')
 		.then(res => {
 			const data = res.data;
-			dispatch({type: 'todo/initListTasks', payload: data});
+			dispatch({type: 'todo/initListTasks', payload: data.list_tasks});
 		})
 		.catch(err => console.log(err))
 }

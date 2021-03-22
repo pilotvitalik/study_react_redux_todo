@@ -1,5 +1,18 @@
 {
-  "id": "1",
-  "title":"Первая задача",
-  "color":"Red"
+  "list_tasks": [
+    {
+      "id": "1",
+      "name": "task_1",
+      "title":"Первая задача",
+      "color_item":"Red",
+      "color": "red"
+    },
+    {
+      "id": "2",
+      "name": "task_2",
+      "title":"Вторая задача",
+      "color_item":"Orange",
+      "color": "orange"
+    } 
+  ]
 }

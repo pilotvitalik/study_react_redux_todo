@@ -10,8 +10,6 @@ import { fetchTodos } from './store/reducers/todoSlice';
 
 store.dispatch(fetchTodos)
 
-console.log(store.getState());
-
 ReactDOM.render(
   <React.StrictMode>
   	<Provider store={store}>

@@ -19,7 +19,10 @@ const useStyles = makeStyles((theme) => ({
 		color: '#fff',
 		background: '#1976d2',
 		borderRadius: '5px',
-	}
+		'&:hover':{
+			background: '#186bbc',
+		}
+	},
 }))
 
 function ActionsTasks(){

@@ -11,6 +11,7 @@ let fileDB = '';
 fs.readFile('./data.json', 'utf8', (err, data) => {
   if (err) console.log(err);
   fileDB = data.toString();
+  //fileDB = JSON.parse(data);
 });
 
 const server = http.createServer((req, res) => {
@@ -28,6 +29,8 @@ const server = http.createServer((req, res) => {
     //   let params = parse(body);
     //   res.end(body);
     //console.log(fileDB)
+    console.log(typeof fileDB);
+    console.log(fileDB);
     res.end(fileDB);
   }
 });
