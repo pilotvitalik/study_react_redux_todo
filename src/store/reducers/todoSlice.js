@@ -10,6 +10,22 @@ export default function todoReducer(state = initialState, action){
 			return {
 				listTasks: action.payload
 			}
+		case 'todo/updateColorLocal':
+			return {
+				...state,
+				listTasks: state.listTasks.map(task => {
+					if ('color_' + task.name === action.payload.name){
+						console.log('Урааа')
+						return { 
+							...task, 
+							color_item: action.payload.val,
+							color: action.payload.val.toLowerCase(),
+						}
+					} else {
+						return task;
+					}
+				})
+			}
 		default:
 			return state;
 	}

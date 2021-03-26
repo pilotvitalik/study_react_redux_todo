@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -31,25 +31,55 @@ const useStyles = makeStyles((theme) => ({
 	},
 	orange:{
 		color: 'orange'
+	},
+	green:{
+		color: 'green'
+	},
+	blue:{
+		color: 'blue'
+	},
+	purple:{
+		color: 'purple'
 	}
 }));
 
 function TodoList(){
 	const classes = useStyles();
 	const list = useSelector(state => state.todo.listTasks);
+	const dispatch = useDispatch();
 	const [activeTask, setActiveTask] = useState(false);
-	
-	let selectedValue = '';
+	const [activeColor, setActiveColor] = useState('');
+	const [activeStyle, setActiveStyle] = useState('');
+	const [activeSelect, setactiveSelect] = useState('');
 
-	const handleChange = (e) => {
-	  selectedValue = 'a';
+	const changeColor = (e) => {
+		const name = e.currentTarget.name;
+		const val = e.currentTarget.value;
+		setactiveSelect(e.currentTarget.name);
+	  	setActiveColor(e.currentTarget.value);
+	  	setActiveStyle(e.currentTarget.value.toLowerCase());
+	  	dispatch({type: 'todo/updateColorLocal', payload: {name: name, val: val}});
 	}
 
 	const changeSelectedTask = (e) => {
-		console.log(e.currentTarget);
 		setActiveTask(e.currentTarget.name);
 	}
 
+	const defineActiveSelect = (item) => {
+		if (activeSelect === "color_" + item.name){
+			return activeColor;
+		} else {
+		  	return item.color_item;
+		 }
+	}
+
+	const defineActiveSelectColor = (item) => {
+		if (activeSelect === "color_" + item.name){
+		  	return classes[activeStyle]
+		} else {
+		  	return classes[item.color]
+		}
+	}
 	const listTodo = list.map((item) => 
 		<ListItem button={false} key={item.id}>
 			<Radio
@@ -61,16 +91,16 @@ function TodoList(){
 				{item.title}
 			</Typography>
 			<NativeSelect
-			  value={item.color_item}
-			  onChange={handleChange}
-			  name="color"
-			  className={classes[item.color]}
+			  value={defineActiveSelect(item)}
+			  onChange={changeColor}
+			  name={"color_" + item.name} 
+			  className={defineActiveSelectColor(item)}
 			>
-			  <option value={'Green'}>Green</option>
-			  <option value={'Blue'}>Blue</option>
-			  <option value={'Orange'}>Orange</option>
-			  <option value={'Purple'}>Purple</option>
-			  <option value={'Red'}>Red</option>
+			  <option value={'Green'} className={classes.green}>Green</option>
+			  <option value={'Blue'} className={classes.blue}>Blue</option>
+			  <option value={'Orange'} className={classes.orange}>Orange</option>
+			  <option value={'Purple'} className={classes.purple}>Purple</option>
+			  <option value={'Red'} className={classes.red}>Red</option>
 			</NativeSelect>
 			<Box ml={1}>
 				<Button variant='text' className={classes.btn}><Clear/></Button>
